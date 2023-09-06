@@ -4,14 +4,20 @@
     <%= recipe.title %>
   </p>
 
-  <p>
+  <div>
     <strong>Ingredients:</strong>
-    <%= recipe.ingredients %>
-  </p>
+    <ul>
+      <% recipe.ingredients.split(/\n/).each do |ingredient| %>
+        <li><%= ingredient.chomp %></li>
+      <% end %>
+    </ul>
+  </div>
 
-  <p>
+  <div>
     <strong>Preparation:</strong>
-    <%= recipe.preparation %>
-  </p>
+    <% recipe.preparation.split(/\n/).map(&:chomp).compact_blank.each do |step| %>
+      <p><%= step %></p>
+    <% end %>
+  </div>
 
 </div>
