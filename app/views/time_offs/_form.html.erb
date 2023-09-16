@@ -1,0 +1,52 @@
+<%= form_with(model: time_off) do |form| %>
+  <% if time_off.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(time_off.errors.count, "error") %> prohibited this time_off from being saved:</h2>
+
+      <ul>
+        <% time_off.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :range, style: "display: block" %>
+    <%= form.text_field :range %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :kind, style: "display: block" %>
+    <%= form.text_field :kind %>
+  </div>
+
+  <div>
+    <%= form.label :half_day, style: "display: block" %>
+    <%= form.check_box :half_day %>
+  </div>
+
+  <div>
+    <%= form.label :paid_time, style: "display: block" %>
+    <%= form.check_box :paid_time %>
+  </div>
+
+  <div>
+    <%= form.label :calendar, style: "display: block" %>
+    <%= form.text_field :calendar %>
+  </div>
+
+  <div>
+    <%= form.label :worker_id, style: "display: block" %>
+    <%= form.number_field :worker_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
